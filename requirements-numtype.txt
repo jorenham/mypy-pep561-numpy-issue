@@ -1,0 +1,3 @@
+-r requirements.txt
+
+numtype @ git+https://github.com/numpy/numtype.git@2fb0af9
