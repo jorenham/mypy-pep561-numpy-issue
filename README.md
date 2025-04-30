@@ -108,7 +108,7 @@ $ pyright .
 
 ---
 
-### Mypy (without NumType)
+### Mypy `2.2.5` (without NumType)
 
 NumType: No
 
@@ -116,12 +116,11 @@ NumType: No
 $ rm -rf .mypy_cache
 $ mypy .
 main.pyi:3: note: Revealed type is "numpy.bool[Literal[True]]"
-Success: no issues found in 1 source file
 ```
 
 `numpy.bool` => NumPy's bundled stubs are used :white_check_mark:
 
-### Mypy (with NumType)
+### Mypy `2.2.5` (with NumType)
 
 ```bash
 $ rm -rf .mypy_cache
@@ -130,6 +129,22 @@ main.pyi:3: note: Revealed type is "numpy.bool[Literal[True]]"
 ```
 
 `numpy.bool` => NumPy's bundled stubs are used :x:
+
+### Mypy (`jorenham:fix-18997`) (with NumType)
+
+Install the PR branch with the fix (python/mypy#19001):
+
+```bash
+uv pip install "git+https://github.com/jorenham/mypy@fix-18997"
+```
+
+```bash
+$ rm -rf .mypy_cache
+$ mypy main.pyi
+main.pyi:3: note: Revealed type is "numpy.bool_[Literal[True]]"
+```
+
+`numpy.bool_` => NumType's `numpy-stubs` are used :white_check_mark:
 
 ## The nuclear workaround
 
