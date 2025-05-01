@@ -1,5 +1,10 @@
 # Mypy's PEP 561 NumPy issue repro
 
+> [!NOTE]
+> This has been fixed in python/mypy#19001
+
+---
+
 From <https://typing.python.org/en/latest/spec/distributing.html#import-resolution-ordering> (which superseeds PEP 561):
 
 > 1. [Stubs](https://typing.python.org/en/latest/spec/glossary.html#term-stub) or Python source manually put in the beginning of the path. Type checkers SHOULD provide this to allow the user complete control of which stubs to use, and to patch broken stubs or [inline](https://typing.python.org/en/latest/spec/glossary.html#term-inline) types from packages. In mypy the `$MYPYPATH` environment variable can be used for this.
